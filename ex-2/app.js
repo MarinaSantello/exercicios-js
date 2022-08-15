@@ -3,7 +3,7 @@
  * Objetivo:        Sistema para cálculo de tabuada
  * Data de criação: 11/08/2022
  * Autor:           Marina Santello
- * Versão:          1.0
+ * Versão:          1.1
  
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -32,12 +32,12 @@ inputInfo.question('\n\nInforme o valor inicial da tabuada [2 - 100]: ', functio
     } 
     // Validação do campo de entrada de dados, para que seja preenchido
     else if (tabuadaInicial == '') {
-        console.log('\nCampo não foi preenchido. Por favor informar a nota.\n\n');
+        console.log('\nCampo não foi preenchido. Por favor informar o valor inicial.\n\n');
         exit();
     }
     // Validação do campo de entrada de dados, para que não seja informado um número fora da feixa de valores exigida pelo cliente
     else if (tabuadaInicial < 2 || tabuadaInicial > 100) {
-        console.log('\nInformação inválida. Digite um número entre 0 e 100.\n\n');
+        console.log('\nInformação inválida. Digite um número entre 2 e 100.\n\n');
         exit();
     }
     // Entrada do valor da tabuada final
@@ -108,11 +108,15 @@ inputInfo.question('\n\nInforme o valor inicial da tabuada [2 - 100]: ', functio
                                 console.log('\nInformação inválida. Digite um número entre 1 e 50.\n\n');
                                 exit();
                             }
+                            // Verificação do campo de entrada de dados, para que o valor informado como multiplicador final não seja menor do que o inicial
+                            else if (multiplicadorFinal < multiplicadorInicial) {
+                                console.log('\nInformação inválida. Digite um valor que seja maior do que o informado anteriormente (multiplicador inicial).\n\n');
+                                exit();
+                            }
                             // Chamada da função que faz o cálculo e exibição da(s) tabuada(s)
-                            console.log(calcularTabuada(tabuadaInicial, tabuadaFinal, multiplicadorInicial, multiplicadorFinal))
+                            calcularTabuada(tabuadaInicial, tabuadaFinal, multiplicadorInicial, multiplicadorFinal)
                         })
                     }
-
                 })
             }
         })
