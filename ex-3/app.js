@@ -3,11 +3,11 @@
  * Objetivo:        Sistema para exibição e gerenciamento de números pares e impares
  * Data de criação: 15/08/2022
  * Autor:           Marina Santello
- * Versão:          1.1
+ * Versão:          1.2
  
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-const { calc, calcParImpar } = require('./modulos/calc-par_impar');
+const { calc, calcParImpar } = require('./modulos/par-impar');
 
 var readline = require('readline');
 const { exit } = require('process');
@@ -80,6 +80,9 @@ inputInfo.question('\nInforme o valor incial [0 - 500]: ', function(valor01) {
                     }
                     // chamada da função para gerenciamento dos valores
                     calcParImpar (numero01, numero02, opcao);
+
+                    // finalização do sistema
+                    exit();
                 })
             }
         })
